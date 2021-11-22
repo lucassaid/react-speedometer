@@ -1,0 +1,28 @@
+{
+    "name": "react-speedometer",
+    "version": "0.0.7",
+    "description": "Cool speedometer for React Native",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {},
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/lucassaid/react-speedometer"
+    },
+    "keywords": [
+      "speedometer",
+      "speed",
+      "cool",
+      "react",
+      "react-component",
+      "circular-progress",
+      "thermostat",
+      "clock"
+    ],
+    "author": "Lucas Said",
+    "license": "ISC",
+    "homepage": "https://github.com/lucassaid/react-speedometer#readme"
+  }
+  
