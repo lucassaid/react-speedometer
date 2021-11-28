@@ -10,4 +10,5 @@ export default createContext({
   accentColor: '#00e0ff',
   fontFamily: 'helvetica',
   value: 0,
+  duration: 0,
 })

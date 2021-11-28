@@ -9,6 +9,7 @@ export default function Speedometer({
   value = 0,
   min = 0,
   max = 180,
+  duration = 250,
   lineCap = 'butt',
   accentColor = '#00e0ff',
   fontFamily = 'helvetica',
@@ -32,6 +33,7 @@ export default function Speedometer({
     accentColor,
     fontFamily,
     value,
+    duration,
   }
   
   return (

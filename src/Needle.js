@@ -10,7 +10,8 @@ export default function Needle ({
   circleColor,
   children,
 }) {
-  const { currentFillAngle, radius, accentColor } = useContext(Context)
+  const { currentFillAngle, radius, accentColor, duration } = useContext(Context)
+  const style = { transition: `all ${duration}ms ease` }
   const bottom = radius + baseOffset
   const points = `
     ${radius - baseWidth / 2}, ${bottom} ${radius + baseWidth / 2}, ${bottom} ${radius}, ${offset}
@@ -34,7 +35,10 @@ export default function Needle ({
   )
 
   return (
-    <g transform={`rotate(${currentFillAngle}, ${radius}, ${radius})`}>
+    <g
+      style={style}
+      transform={`rotate(${currentFillAngle}, ${radius}, ${radius})`}
+    >
       {children ? children() : defaultNeedle}
     </g>
   )
