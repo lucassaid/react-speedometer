@@ -7,6 +7,8 @@ If you are tired of all those boring speedometers for react, have a look at this
 
 ✅ Flexible
 
+✅ 0 dependencies
+
 ✅ Performant
 
 ✅ Support for negative numbers
