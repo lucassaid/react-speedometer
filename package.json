@@ -1,28 +1,36 @@
 {
-    "name": "react-speedometer",
-    "version": "0.0.7",
-    "description": "Cool speedometer for React Native",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "dependencies": {},
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/lucassaid/react-speedometer"
-    },
-    "keywords": [
-      "speedometer",
-      "speed",
-      "cool",
-      "react",
-      "react-component",
-      "circular-progress",
-      "thermostat",
-      "clock"
-    ],
-    "author": "Lucas Said",
-    "license": "ISC",
-    "homepage": "https://github.com/lucassaid/react-speedometer#readme"
+  "name": "react-speedometer",
+  "version": "0.1.0",
+  "description": "Cool speedometer for React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucassaid/react-speedometer"
+  },
+  "keywords": [
+    "speedometer",
+    "speed",
+    "cool",
+    "react",
+    "react-component",
+    "circular-progress",
+    "thermostat",
+    "clock"
+  ],
+  "author": "Lucas Said",
+  "license": "ISC",
+  "homepage": "https://github.com/lucassaid/react-speedometer#readme",
+  "peerDependencies": {
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
-  
+}

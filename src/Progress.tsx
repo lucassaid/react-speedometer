@@ -1,12 +1,19 @@
-import React, { useContext, useMemo } from 'react'
+import { SVGAttributes, useContext, useMemo } from 'react'
 import Context from './context'
 import { getCirclePath } from './utils'
 
-export default function Progress ({
+interface ProgressProps extends SVGAttributes<SVGPathElement> {
+  color?: string
+  arcWidth?: number
+  lineCap?: SVGAttributes<SVGPathElement>['strokeLinecap']
+}
+
+export default function Progress({
   color,
   arcWidth = 5,
   lineCap,
-}) {
+  ...rest
+}: ProgressProps) {
 
   const {
     accentColor,
@@ -30,6 +37,7 @@ export default function Progress ({
       strokeWidth={arcWidth}
       strokeLinecap={lineCap || globalLineCap}
       fill="transparent"
+      {...rest}
     />
   )
 }

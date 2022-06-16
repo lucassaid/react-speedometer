@@ -1,14 +1,23 @@
-import React, { useContext, useMemo } from 'react'
+import { SVGAttributes, useContext, useMemo } from 'react'
 import Context from './context'
 import { getCirclePath } from './utils'
 
-export default function DangerPath ({
+interface DangerPathProps extends SVGAttributes<SVGPathElement> {
+  color?: string
+  angle?: number
+  arcWidth?: number
+  lineCap?: SVGAttributes<SVGPathElement>['strokeLinecap']
+  offset?: number
+}
+
+export default function DangerPath({
   color = '#FF3333',
   angle = 50,
   arcWidth = 4,
   lineCap,
-  offset = 6
-}) {
+  offset = 6,
+  ...rest
+}: DangerPathProps) {
 
   const {
     radius,
@@ -31,6 +40,7 @@ export default function DangerPath ({
       strokeWidth={arcWidth}
       strokeLinecap={lineCap || globalLineCap}
       fill="transparent"
+      {...rest}
     />
   )
 }

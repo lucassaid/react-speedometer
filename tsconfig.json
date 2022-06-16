@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "paths": {
+      "react-speedometer": [
+        "./src/index"
+      ]
+    },
+    "target": "esnext",
+    "declaration": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "allowUnreachableCode": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "lib": [
+      "es2017"
+    ],
+  },
+}

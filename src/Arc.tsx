@@ -1,15 +1,23 @@
 
 
-import React, { useContext, useMemo } from 'react'
+import { SVGAttributes, useContext, useMemo } from 'react'
 import Context from './context'
 import { getCirclePath } from './utils'
 
-export default function Arc ({
+interface ArcProps extends SVGAttributes<SVGPathElement> {
+  color?: string
+  opacity?: number
+  arcWidth?: number
+  lineCap?: SVGAttributes<SVGPathElement>['strokeLinecap']
+}
+
+export default function Arc({
   color = 'black',
   opacity = 0.3,
   arcWidth = 4,
   lineCap,
-}) {
+  ...rest
+}: ArcProps) {
 
   const {
     radius,
@@ -33,6 +41,7 @@ export default function Arc ({
       strokeWidth={arcWidth}
       strokeLinecap={lineCap || globalLineCap}
       fill='transparent'
+      {...rest}
     />
   )
 }

@@ -1,12 +1,24 @@
-import React, { useContext } from 'react'
+import { SVGProps, useContext } from 'react'
 import Context from './context'
+
+interface IndicatorProps extends SVGProps<SVGTextElement> {
+  fontSize?: number
+  color?: string
+  fontFamily?: string
+  textAnchor?: SVGProps<SVGTextElement>['textAnchor']
+  children?: (
+    fixedValue: string,
+    textProps: { transform: string }
+  ) => JSX.Element
+}
 
 export default function Indicator({
   fontSize = 45,
   color = 'white',
   fontFamily,
   children,
-}) {
+  ...rest
+}: IndicatorProps) {
 
   const {
     value,
@@ -18,7 +30,7 @@ export default function Indicator({
   const textProps = {
     transform: `rotate(${360 - rotation}, ${radius}, ${radius})`,
   }
-  const fixedValue = Number(value).toFixed() 
+  const fixedValue = Number(value).toFixed()
 
   if (children) return children(fixedValue, textProps)
 
@@ -31,6 +43,7 @@ export default function Indicator({
       fontSize={fontSize}
       fontFamily={fontFamily || globalFontFamily}
       fill={color}
+      {...rest}
     >
       {fixedValue}
     </text>

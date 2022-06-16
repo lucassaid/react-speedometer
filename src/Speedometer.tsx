@@ -1,5 +1,19 @@
-import React, { useMemo } from 'react'
+import { SVGAttributes, useMemo } from 'react'
 import SpeedometerContext from './context'
+
+export interface SpeedometerProps {
+  width?: number
+  height?: number
+  angle?: number
+  rotation?: number
+  value?: number
+  min?: number
+  max?: number
+  lineCap?: SVGAttributes<SVGPathElement>['strokeLinecap']
+  accentColor?: string
+  fontFamily?: string
+  children: JSX.Element | JSX.Element[],
+}
 
 export default function Speedometer({
   width = 250,
@@ -13,12 +27,12 @@ export default function Speedometer({
   accentColor = '#00e0ff',
   fontFamily = 'helvetica',
   children,
-}) {
+}: SpeedometerProps) {
 
   const radius = width / 2
   const currentFillAngle = useMemo(() => {
     const clampValue = Math.min(max, Math.max(min, Number(value)))
-    return (angle * (clampValue - min)) / (max -min)
+    return (angle * (clampValue - min)) / (max - min)
   }, [min, max, value, angle])
 
   const contextValue = {
@@ -33,7 +47,7 @@ export default function Speedometer({
     fontFamily,
     value,
   }
-  
+
   return (
     <SpeedometerContext.Provider value={contextValue}>
       <svg width={width} height={height}>
