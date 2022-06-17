@@ -12,7 +12,7 @@ export interface SpeedometerProps {
   lineCap?: SVGAttributes<SVGPathElement>['strokeLinecap']
   accentColor?: string
   fontFamily?: string
-  children: JSX.Element | JSX.Element[],
+  children: JSX.Element | Array<JSX.Element | false>,
 }
 
 export default function Speedometer({
