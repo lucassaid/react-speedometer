@@ -26,7 +26,7 @@ const Thermostat = () => {
       <Marks step={5}>
         {(mark, i) => (
           <G key={i}>
-            {mark.isEven && (
+            {mark.isSpecial && (
               <Text
                 {...mark.textProps}
                 textAnchor="middle"
