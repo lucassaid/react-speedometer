@@ -13,7 +13,7 @@ const getMarkPosition = (angle: number, offset: number, radius: number) => {
 
 interface Mark {
   coordinates: { x1: number, y1: number, x2: number, y2: number }
-  isEven: boolean
+  isSpecial: boolean
   textProps: { x: number, y: number, transform: string }
   value: number
 }
@@ -26,6 +26,7 @@ interface MarksProps {
   numbersRadius?: number
   fontSize?: number
   lineSize?: number
+  specialMarkStep?: number
   children?: (mark: Mark, index: number) => JSX.Element
 }
 
@@ -37,6 +38,7 @@ export default function Marks({
   numbersRadius = 17,
   fontSize = 18,
   lineSize = 12,
+  specialMarkStep = 2,
   children,
 }: MarksProps) {
 
@@ -55,8 +57,8 @@ export default function Marks({
 
     return [...Array(stepsLength + 1)].map((val, index) => {
       const actualAngle = gap * index
-      const isEven = index % 2 == 0
-      const size = isEven ? lineSize : lineSize - 5
+      const isSpecial = index % specialMarkStep == 0
+      const size = isSpecial ? lineSize : lineSize - 5
 
       const { x: x1, y: y1 } = getMarkPosition(actualAngle, 0, radius)
       const { x: x2, y: y2 } = getMarkPosition(actualAngle, - size, radius)
@@ -64,7 +66,7 @@ export default function Marks({
 
       return {
         coordinates: { x1, y1, x2, y2 },
-        isEven,
+        isSpecial,
         textProps: { x, y, transform: `rotate(${360 - rotation}, ${x}, ${y})` },
         value: Math.round((index * step) + min)
       }
@@ -84,11 +86,11 @@ export default function Marks({
           <line
             {...mark.coordinates}
             stroke={lineColor}
-            strokeWidth={mark.isEven ? 3 : 2}
+            strokeWidth={mark.isSpecial ? 3 : 2}
             strokeOpacity={lineOpacity}
             strokeLinecap={lineCap}
           />
-          {mark.isEven && (
+          {mark.isSpecial && (
             <text
               {...mark.textProps}
               fill="white"

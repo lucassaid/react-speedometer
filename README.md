@@ -332,6 +332,7 @@ It is possible to wrap any component inside a `<G>` tag and add more vectors:
 | numbersRadius | 17 | number | Distance from the border of the circle |
 | fontSize | 18 | number | Font size of the numbers |
 | lineSize | 12 | number | Large of the lines |
+| specialMarkStep | 2 | number | Make every 2 mark special |
 
 ### Indicator
 | Prop | Default | Type | Description
